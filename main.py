@@ -1,7 +1,6 @@
 import speech_recognition as sr
 from win32com.client import Dispatch
-import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="None"
+import soundfile
 
 speak = Dispatch("SAPI.SpVoice").Speak
 
@@ -13,11 +12,12 @@ def take_command():
     with sr.Microphone() as source:
         r.pause_threshold=1
         audio=r.listen(source)
-        query=r.recognize_google_cloud(audio, credentials_json="None", language="en-in")
+        query=r.recognize_whisper(audio, language="english")
         print(f"User said -  {query}")
 
 if __name__ == '__main__':
     print("PyCharm")
+    print("Speaking...")
     say("Hello I am Jarvis A I")
     print("Listening...")
     take_command()
