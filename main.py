@@ -11,10 +11,11 @@ def say(text) :
 def take_command():
     r=sr.Recognizer()
     with sr.Microphone() as source:
-        r.pause_threshold=0.8
+        r.pause_threshold=0.6
         audio=r.listen(source)
         try:
-            query = r.recognize_whisper(audio, language="english")
+            print("Recognizing...")
+            query = r.recognize_whisper(audio, language="en")
             print(f"User said -  {query}")
             return query
         except Exception as e:
