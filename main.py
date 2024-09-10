@@ -1,5 +1,5 @@
 import os
-
+from datetime import datetime
 import speech_recognition as sr
 from win32com.client import Dispatch
 import soundfile
@@ -39,5 +39,9 @@ if __name__ == '__main__':
         if "open music".lower() in query.lower():
             musicPath="C:/Users/ashut/PycharmProjects/JarvisAI/vinee-heights-126947.mp3"
             os.startfile(musicPath)
+
+        if "the time".lower() in query.lower():
+            strfTime=datetime.now().strftime("%H:%M:%S")
+            say(f"the time is {strfTime}")
 
         # say(query)
