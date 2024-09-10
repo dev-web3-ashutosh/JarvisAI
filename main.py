@@ -44,4 +44,11 @@ if __name__ == '__main__':
             strfTime=datetime.now().strftime("%H:%M:%S")
             say(f"the time is {strfTime}")
 
+        if "open notepad".lower() in query.lower():
+            file="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Accessories/Notepad"
+            os.startfile(file)
+
+
+
+
         # say(query)
