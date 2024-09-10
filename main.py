@@ -1,3 +1,5 @@
+import os
+
 import speech_recognition as sr
 from win32com.client import Dispatch
 import soundfile
@@ -28,10 +30,14 @@ if __name__ == '__main__':
     while True:
         print("Listening...")
         query=take_command()
-        sites=[["youtube", "https://www.youtube.com"], ["google", "https://www.google.com"], ["wikipedia", "https://www.wikipedia.com"]]
+        sites=[["youtube", "https://www.youtube.com"], ["google", "https://www.google.com"], ["instagram", "https://www.instagram.com"]]
         for site in sites:
             if f"Open {site[0]}".lower() in query.lower():
                 say(f"Opening {site[0]}")
                 webbrowser.open(site[1])
+
+        if "open music".lower() in query.lower():
+            musicPath="C:/Users/ashut/PycharmProjects/JarvisAI/vinee-heights-126947.mp3"
+            os.startfile(musicPath)
 
         # say(query)
